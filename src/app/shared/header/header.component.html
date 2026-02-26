@@ -9,7 +9,6 @@
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       <a routerLink="/menu" routerLinkActive="active">Menu</a>
       <a routerLink="/login" routerLinkActive="active">Login</a>
-      <a routerLink="/register" routerLinkActive="active">Create User</a>
     </nav>
 
     <div class="session" *ngIf="session$ | async as session">
