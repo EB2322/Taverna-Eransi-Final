@@ -1,0 +1,39 @@
+<section class="auth-page">
+  <article class="auth-card">
+    <p class="eyebrow">Llogari e re</p>
+    <h1>Create User Account</h1>
+
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        name="username"
+        type="text"
+        required
+        [(ngModel)]="username"
+      />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        required
+        [(ngModel)]="password"
+      />
+
+      <label for="confirmPassword">Konfirmo Password</label>
+      <input
+        id="confirmPassword"
+        name="confirmPassword"
+        type="password"
+        required
+        [(ngModel)]="confirmPassword"
+      />
+
+      <button type="submit" [disabled]="registerForm.invalid">Krijo user</button>
+    </form>
+
+    <p class="message" [class.error]="isError" *ngIf="message">{{ message }}</p>
+  </article>
+</section>

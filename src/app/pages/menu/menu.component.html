@@ -1,0 +1,145 @@
+<section class="menu-page">
+  <header class="menu-hero">
+    <p class="eyebrow">Menu / Menu</p>
+    <h1>{{ pageTitle }}</h1>
+    <p>
+      Specialitete tradicionale, gatime ne zgarre dhe pije te perzgjedhura.
+      Cmimet jane ne Lek (L).
+    </p>
+    <p class="admin-note" *ngIf="canEditPrices">Je i loguar si admin. Mund te ndryshosh cmimet.</p>
+  </header>
+
+  <section class="admin-panel" *ngIf="canEditPrices">
+    <h2>Paneli i Adminit</h2>
+
+    <div class="admin-card">
+      <h3>Shto kategori menuje</h3>
+      <div class="inline-form">
+        <input
+          type="text"
+          [(ngModel)]="newSectionTitle"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Titulli i kategorise"
+          aria-label="Titulli i kategorise"
+        />
+        <input
+          type="text"
+          [(ngModel)]="newSectionNote"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Shenim (opsional)"
+          aria-label="Shenim i kategorise"
+        />
+        <button type="button" (click)="addSection()">Shto kategori</button>
+      </div>
+    </div>
+
+    <div class="admin-card" *ngIf="canManageUsers">
+      <h3>Menaxho userat</h3>
+      <div class="inline-form">
+        <input
+          type="text"
+          [(ngModel)]="newUserUsername"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Username"
+          aria-label="Username i userit te ri"
+        />
+        <input
+          type="password"
+          [(ngModel)]="newUserPassword"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Password"
+          aria-label="Password i userit te ri"
+        />
+        <select
+          [(ngModel)]="newUserRole"
+          [ngModelOptions]="{ standalone: true }"
+          aria-label="Roli i userit te ri"
+        >
+          <option value="user">user</option>
+          <option value="admin">admin</option>
+        </select>
+        <button type="button" (click)="addUser()">Shto user</button>
+      </div>
+
+      <p class="user-message" [class.error]="userMessageError" *ngIf="userMessage">
+        {{ userMessage }}
+      </p>
+
+      <ul class="users-list">
+        <li *ngFor="let user of users">
+          <span class="user-line">{{ user.username }} ({{ user.role }})</span>
+          <input
+            type="password"
+            [(ngModel)]="userPasswordDrafts[user.username]"
+            [ngModelOptions]="{ standalone: true }"
+            placeholder="Password i ri"
+            aria-label="Password i ri per userin"
+          />
+          <button type="button" (click)="updateUserPassword(user.username)">Ruaj password</button>
+          <button type="button" class="danger" (click)="deleteUser(user.username)">Fshi</button>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="menu-grid">
+    <article class="menu-section" *ngFor="let section of sections; let sectionIndex = index">
+      <h2>{{ section.title }}</h2>
+
+      <ul>
+        <li *ngFor="let item of section.items; let itemIndex = index">
+          <span class="item-name">{{ item.name }}</span>
+          <span class="item-price" *ngIf="!canEditPrices">{{ item.price }}</span>
+          <div class="item-admin" *ngIf="canEditPrices; else readOnlyItem">
+            <input
+              class="price-input"
+              type="text"
+              [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="item.price"
+              (ngModelChange)="saveSections()"
+              aria-label="Ndrysho cmimin"
+            />
+            <button type="button" class="danger ghost" (click)="removeItem(sectionIndex, itemIndex)">Fshi</button>
+          </div>
+        </li>
+      </ul>
+
+      <ng-template #readOnlyItem></ng-template>
+
+      <div class="inline-form section-actions" *ngIf="canEditPrices">
+        <input
+          type="number"
+          min="1"
+          [max]="sections.length"
+          [(ngModel)]="sectionPositionDrafts[section.id]"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Pozicioni"
+          aria-label="Pozicioni i kategorise"
+        />
+        <button type="button" (click)="moveSectionToPosition(sectionIndex, sectionPositionDrafts[section.id])">
+          Vendos renditjen
+        </button>
+        <button type="button" (click)="moveSectionUp(sectionIndex)">Leviz lart</button>
+        <button type="button" (click)="moveSectionDown(sectionIndex)">Leviz poshte</button>
+        <input
+          type="text"
+          [(ngModel)]="sectionDraftItems[sectionIndex].name"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Emri i produktit"
+          aria-label="Emri i produktit te ri"
+        />
+        <input
+          type="text"
+          [(ngModel)]="sectionDraftItems[sectionIndex].price"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Cmimi"
+          aria-label="Cmimi i produktit te ri"
+        />
+        <button type="button" (click)="addItem(sectionIndex)">Shto artikull</button>
+        <button type="button" class="danger" (click)="removeSection(sectionIndex)">Fshi kategori</button>
+      </div>
+
+      <p class="section-note" *ngIf="section.note">{{ section.note }}</p>
+    </article>
+  </div>
+</section>

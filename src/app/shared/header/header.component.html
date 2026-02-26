@@ -1,0 +1,26 @@
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" routerLink="/" aria-label="Taverna Eransi Home">
+      <span class="brand-title">Taverna Eransi</span>
+      <span class="brand-sub">Shije tradicionale prane liqenit</span>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/menu" routerLinkActive="active">Menu</a>
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+      <a routerLink="/register" routerLinkActive="active">Create User</a>
+    </nav>
+
+    <div class="session" *ngIf="session$ | async as session; else guest">
+      <span>{{ session.username }} ({{ session.role }})</span>
+      <button type="button" (click)="logout()">Logout</button>
+    </div>
+
+    <ng-template #guest>
+      <div class="session">
+        <span>Pa login</span>
+      </div>
+    </ng-template>
+  </div>
+</header>

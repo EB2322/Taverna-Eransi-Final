@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #f6f2e8;
+  --bg-accent: #e9dcc6;
+  --paper: #fffdf8;
+  --paper-soft: #f9f3e6;
+  --ink: #1f2430;
+  --ink-soft: #575f6f;
+  --line: #decdb2;
+  --brand: #a14f2f;
+  --brand-strong: #7e3518;
+  --shadow: 0 18px 50px rgba(57, 34, 19, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(120deg, rgba(26, 18, 12, 0.58), rgba(44, 24, 13, 0.5)),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=80'),
+    url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=2200&q=80');
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+  background-attachment: fixed, fixed, fixed;
+  filter: saturate(1.05);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% -10%, rgba(233, 220, 198, 0.38) 0%, transparent 46%),
+    radial-gradient(circle at 80% 120%, rgba(232, 216, 191, 0.3) 0%, transparent 45%),
+    rgba(245, 239, 227, 0.72);
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  width: min(1160px, 100% - 32px);
+  margin: 28px auto 36px;
+  animation: fade-up 420ms ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

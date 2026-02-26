@@ -1,0 +1,30 @@
+<section class="auth-page">
+  <article class="auth-card">
+    <p class="eyebrow">Llogaria</p>
+    <h1>Login</h1>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        name="username"
+        type="text"
+        required
+        [(ngModel)]="username"
+      />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        required
+        [(ngModel)]="password"
+      />
+
+      <button type="submit" [disabled]="loginForm.invalid">Hyr</button>
+    </form>
+
+    <p class="message" [class.error]="isError" *ngIf="message">{{ message }}</p>
+  </article>
+</section>

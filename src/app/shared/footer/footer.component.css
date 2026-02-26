@@ -1,0 +1,41 @@
+.ftr {
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 252, 246, 0.92), rgba(248, 238, 222, 0.95));
+  padding: 24px 0 16px;
+}
+
+.wrap {
+  width: min(1160px, 100% - 32px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+section h3 {
+  margin: 0 0 8px;
+  color: #4e2d18;
+  font-size: 1.35rem;
+}
+
+section p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.copy {
+  width: min(1160px, 100% - 32px);
+  margin: 18px auto 0;
+  padding-top: 12px;
+  border-top: 1px dashed #dbc7a8;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 840px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+}
