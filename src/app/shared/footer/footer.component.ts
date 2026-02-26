@@ -10,6 +10,7 @@ import { SiteSettings, SiteSettingsService } from '../../core/site-settings.serv
 })
 export class FooterComponent {
   readonly settings$: Observable<SiteSettings>;
+  readonly currentYear = new Date().getFullYear();
 
   constructor(private readonly siteSettingsService: SiteSettingsService) {
     this.settings$ = this.siteSettingsService.settings$;
