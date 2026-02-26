@@ -9,40 +9,106 @@
     <section class="admin-card">
       <h3>Header dhe Home</h3>
       <div class="inline-form">
-        <input type="text" [(ngModel)]="siteSettingsDraft.brandTitle" [ngModelOptions]="{ standalone: true }" placeholder="Titulli i logos" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.brandSubtitle" [ngModelOptions]="{ standalone: true }" placeholder="Nentitulli i logos" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.homeEyebrow" [ngModelOptions]="{ standalone: true }" placeholder="Teksti i vogel ne home" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.homeTitle" [ngModelOptions]="{ standalone: true }" placeholder="Titulli kryesor ne home" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.homeLead" [ngModelOptions]="{ standalone: true }" placeholder="Pershkrimi ne home" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.phoneNumber" [ngModelOptions]="{ standalone: true }" placeholder="Numri i telefonit" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.backgroundImageUrl" [ngModelOptions]="{ standalone: true }" placeholder="URL e fotos background" />
+        <label class="field">
+          <span>Titulli i logos</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.brandTitle" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Nentitulli i logos</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.brandSubtitle" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Teksti i vogel ne home</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.homeEyebrow" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Titulli kryesor ne home</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.homeTitle" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Pershkrimi ne home</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.homeLead" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Numri i telefonit</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.phoneNumber" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>URL e fotos background</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.backgroundImageUrl" [ngModelOptions]="{ standalone: true }" />
+        </label>
       </div>
     </section>
 
     <section class="admin-card">
       <h3>Kartat e Home</h3>
       <div class="inline-form">
-        <input type="text" [(ngModel)]="siteSettingsDraft.featureOneTitle" [ngModelOptions]="{ standalone: true }" placeholder="Karta 1 titulli" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.featureOneText" [ngModelOptions]="{ standalone: true }" placeholder="Karta 1 pershkrimi" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.featureTwoTitle" [ngModelOptions]="{ standalone: true }" placeholder="Karta 2 titulli" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.featureTwoText" [ngModelOptions]="{ standalone: true }" placeholder="Karta 2 pershkrimi" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.featureThreeTitle" [ngModelOptions]="{ standalone: true }" placeholder="Karta 3 titulli" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.featureThreeText" [ngModelOptions]="{ standalone: true }" placeholder="Karta 3 pershkrimi" />
+        <label class="field">
+          <span>Karta 1 titulli</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.featureOneTitle" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Karta 1 pershkrimi</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.featureOneText" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Karta 2 titulli</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.featureTwoTitle" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Karta 2 pershkrimi</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.featureTwoText" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Karta 3 titulli</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.featureThreeTitle" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Karta 3 pershkrimi</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.featureThreeText" [ngModelOptions]="{ standalone: true }" />
+        </label>
       </div>
     </section>
 
     <section class="admin-card">
       <h3>Footer</h3>
       <div class="inline-form">
-        <input type="text" [(ngModel)]="siteSettingsDraft.footerDescription" [ngModelOptions]="{ standalone: true }" placeholder="Pershkrimi ne footer" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.footerHoursTitle" [ngModelOptions]="{ standalone: true }" placeholder="Titulli i orarit" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.footerHours" [ngModelOptions]="{ standalone: true }" placeholder="Orari ne footer" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.footerContactTitle" [ngModelOptions]="{ standalone: true }" placeholder="Titulli i kontaktit" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.footerWhatsappLabel" [ngModelOptions]="{ standalone: true }" placeholder="Etiketa WhatsApp" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.footerLocationPrefix" [ngModelOptions]="{ standalone: true }" placeholder="Etiketa Lokacioni" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.footerLocationUrl" [ngModelOptions]="{ standalone: true }" placeholder="URL lokacionit ne footer" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.footerLocationLabel" [ngModelOptions]="{ standalone: true }" placeholder="Teksti i lokacionit ne footer" />
-        <input type="text" [(ngModel)]="siteSettingsDraft.footerCopyrightName" [ngModelOptions]="{ standalone: true }" placeholder="Emri te copyright" />
+        <label class="field">
+          <span>Pershkrimi ne footer</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.footerDescription" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Titulli i orarit</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.footerHoursTitle" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Orari ne footer</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.footerHours" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Titulli i kontaktit</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.footerContactTitle" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Etiketa WhatsApp</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.footerWhatsappLabel" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Etiketa Lokacioni</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.footerLocationPrefix" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>URL lokacionit ne footer</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.footerLocationUrl" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Teksti i linkut te lokacionit</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.footerLocationLabel" [ngModelOptions]="{ standalone: true }" />
+        </label>
+        <label class="field">
+          <span>Emri te copyright</span>
+          <input type="text" [(ngModel)]="siteSettingsDraft.footerCopyrightName" [ngModelOptions]="{ standalone: true }" />
+        </label>
       </div>
     </section>
 

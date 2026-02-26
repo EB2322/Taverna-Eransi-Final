@@ -55,6 +55,17 @@
   font: inherit;
 }
 
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #4e2d18;
+}
+
 .color-field {
   display: grid;
   gap: 6px;
