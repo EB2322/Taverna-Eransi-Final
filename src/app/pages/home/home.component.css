@@ -38,6 +38,21 @@
   gap: 12px;
 }
 
+.social-links {
+  margin: 14px 0 0;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.social-links a {
+  color: #1d4f91;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
