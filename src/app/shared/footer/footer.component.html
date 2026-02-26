@@ -1,7 +1,7 @@
 ﻿<footer class="ftr">
-  <div class="wrap">
+  <div class="wrap" *ngIf="settings$ | async as settings">
     <section>
-      <h3>Taverna Eransi</h3>
+      <h3>{{ settings.brandTitle }}</h3>
       <p>Gatim tradicional shqiptar, peshk i fresket dhe atmosfere familjare.</p>
     </section>
 
@@ -14,7 +14,7 @@
       <h3>Kontakt</h3>
       <p>
         WhatsApp:
-        <a href="https://wa.me/355692755666" target="_blank" rel="noopener noreferrer">+355 69 275 5666</a>
+        <a [href]="whatsappLink" target="_blank" rel="noopener noreferrer">{{ settings.phoneNumber }}</a>
       </p>
       <p>
         Lokacioni:

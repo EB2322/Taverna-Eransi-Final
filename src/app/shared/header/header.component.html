@@ -1,8 +1,8 @@
 <header class="hdr">
   <div class="wrap">
-    <a class="brand" routerLink="/" aria-label="Taverna Eransi Home">
-      <span class="brand-title">Taverna Eransi</span>
-      <span class="brand-sub">Shije tradicionale prane liqenit</span>
+    <a class="brand" routerLink="/" aria-label="Taverna Eransi Home" *ngIf="settings$ | async as settings">
+      <span class="brand-title">{{ settings.brandTitle }}</span>
+      <span class="brand-sub">{{ settings.brandSubtitle }}</span>
     </a>
 
     <nav class="nav" aria-label="Main navigation">

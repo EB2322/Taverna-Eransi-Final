@@ -1,20 +1,17 @@
-<section class="hero">
-  <p class="eyebrow">Mire se vini</p>
-  <h1>Kuzhine tradicionale shqiptare me shije moderne</h1>
-  <p class="lead">
-    Nga peshku i fresket deri te gatimet e taves, Taverna Eransi sjell receta autentike
-    ne nje ambient te ngrohte familjar.
-  </p>
+<section class="hero" *ngIf="settings$ | async as settings">
+  <p class="eyebrow">{{ settings.homeEyebrow }}</p>
+  <h1>{{ settings.homeTitle }}</h1>
+  <p class="lead">{{ settings.homeLead }}</p>
 
   <div class="hero-actions">
     <a class="btn btn-primary" routerLink="/menu">Shiko Menune</a>
     <a
       class="btn btn-secondary"
-      href="https://wa.me/355692755666?text=Pershendetje%2C%20dua%20te%20bej%20nje%20rezervim%20ne%20Taverna%20Eransi."
+      [href]="whatsappLink"
       target="_blank"
       rel="noopener noreferrer"
     >
-      Rezervo ne WhatsApp
+      Rezervo ne WhatsApp ({{ settings.phoneNumber }})
     </a>
     <a
       class="btn btn-secondary"

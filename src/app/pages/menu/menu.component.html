@@ -13,6 +13,111 @@
     <h2>Paneli i Adminit</h2>
 
     <div class="admin-card">
+      <h3>Cilesimet e Faqes</h3>
+      <div class="inline-form">
+        <input
+          type="text"
+          [(ngModel)]="siteSettingsDraft.brandTitle"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Titulli i logos"
+          aria-label="Titulli i logos"
+        />
+        <input
+          type="text"
+          [(ngModel)]="siteSettingsDraft.brandSubtitle"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Nentitulli i logos"
+          aria-label="Nentitulli i logos"
+        />
+        <input
+          type="text"
+          [(ngModel)]="siteSettingsDraft.homeEyebrow"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Teksti i vogel ne home"
+          aria-label="Teksti i vogel ne home"
+        />
+        <input
+          type="text"
+          [(ngModel)]="siteSettingsDraft.homeTitle"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Titulli kryesor ne home"
+          aria-label="Titulli kryesor ne home"
+        />
+        <input
+          type="text"
+          [(ngModel)]="siteSettingsDraft.homeLead"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Pershkrimi ne home"
+          aria-label="Pershkrimi ne home"
+        />
+        <input
+          type="text"
+          [(ngModel)]="siteSettingsDraft.phoneNumber"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Numri i telefonit (p.sh. +355...)"
+          aria-label="Numri i telefonit"
+        />
+        <input
+          type="text"
+          [(ngModel)]="siteSettingsDraft.backgroundImageUrl"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="URL e fotos background"
+          aria-label="URL e fotos background"
+        />
+        <label class="color-field">
+          Ngjyra background
+          <input
+            type="color"
+            [(ngModel)]="siteSettingsDraft.colorBg"
+            [ngModelOptions]="{ standalone: true }"
+            aria-label="Ngjyra background"
+          />
+        </label>
+        <label class="color-field">
+          Ngjyra panelit
+          <input
+            type="color"
+            [(ngModel)]="siteSettingsDraft.colorPaper"
+            [ngModelOptions]="{ standalone: true }"
+            aria-label="Ngjyra panelit"
+          />
+        </label>
+        <label class="color-field">
+          Ngjyra tekstit
+          <input
+            type="color"
+            [(ngModel)]="siteSettingsDraft.colorInk"
+            [ngModelOptions]="{ standalone: true }"
+            aria-label="Ngjyra tekstit"
+          />
+        </label>
+        <label class="color-field">
+          Ngjyra kryesore
+          <input
+            type="color"
+            [(ngModel)]="siteSettingsDraft.colorBrand"
+            [ngModelOptions]="{ standalone: true }"
+            aria-label="Ngjyra kryesore"
+          />
+        </label>
+        <label class="color-field">
+          Ngjyra e forte
+          <input
+            type="color"
+            [(ngModel)]="siteSettingsDraft.colorBrandStrong"
+            [ngModelOptions]="{ standalone: true }"
+            aria-label="Ngjyra e forte"
+          />
+        </label>
+      </div>
+
+      <button type="button" (click)="saveSiteSettings()">Ruaj cilesimet e faqes</button>
+      <p class="user-message" [class.error]="settingsMessageError" *ngIf="settingsMessage">
+        {{ settingsMessage }}
+      </p>
+    </div>
+
+    <div class="admin-card">
       <h3>Shto kategori menuje</h3>
       <div class="inline-form">
         <input

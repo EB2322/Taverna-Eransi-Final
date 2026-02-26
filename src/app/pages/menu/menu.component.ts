@@ -1,6 +1,7 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { AuthService, UserRole, UserSummary } from '../../core/auth.service';
+import { SiteSettings, SiteSettingsService } from '../../core/site-settings.service';
 
 interface MenuItem {
   name: string;
@@ -13,6 +14,22 @@ interface MenuSection {
   items: MenuItem[];
   note?: string;
 }
+
+type SiteSettingsDraft = Pick<
+  SiteSettings,
+  | 'brandTitle'
+  | 'brandSubtitle'
+  | 'homeEyebrow'
+  | 'homeTitle'
+  | 'homeLead'
+  | 'phoneNumber'
+  | 'backgroundImageUrl'
+  | 'colorBg'
+  | 'colorPaper'
+  | 'colorInk'
+  | 'colorBrand'
+  | 'colorBrandStrong'
+>;
 
 @Component({
   selector: 'app-menu',
@@ -217,13 +234,30 @@ export class MenuComponent {
   newUserRole: UserRole = 'user';
   userMessage = '';
   userMessageError = false;
+  settingsMessage = '';
+  settingsMessageError = false;
   users: UserSummary[] = [];
   userPasswordDrafts: Record<string, string> = {};
   sectionPositionDrafts: Record<string, string> = {};
   sectionDraftItems: MenuItem[] = [];
+  siteSettingsDraft: SiteSettingsDraft = {
+    brandTitle: '',
+    brandSubtitle: '',
+    homeEyebrow: '',
+    homeTitle: '',
+    homeLead: '',
+    phoneNumber: '',
+    backgroundImageUrl: '',
+    colorBg: '#f6f2e8',
+    colorPaper: '#fffdf8',
+    colorInk: '#1f2430',
+    colorBrand: '#a14f2f',
+    colorBrandStrong: '#7e3518'
+  };
 
   constructor(
     private readonly authService: AuthService,
+    private readonly siteSettingsService: SiteSettingsService,
     @Inject(PLATFORM_ID) platformId: object
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -231,6 +265,7 @@ export class MenuComponent {
     this.sections = this.normalizeSections(this.sections);
     this.syncSectionDraftItems();
     this.refreshUsers();
+    this.loadSiteSettingsDraft();
   }
 
   get canEditPrices(): boolean {
@@ -423,6 +458,17 @@ export class MenuComponent {
     }
   }
 
+  saveSiteSettings(): void {
+    if (!this.canManageMenuStructure) {
+      return;
+    }
+
+    this.siteSettingsService.updateSettings(this.siteSettingsDraft);
+    this.loadSiteSettingsDraft();
+    this.settingsMessage = 'Cilesimet e faqes u ruajten me sukses.';
+    this.settingsMessageError = false;
+  }
+
   private restoreSections(): void {
     if (!this.isBrowser) {
       return;
@@ -537,5 +583,23 @@ export class MenuComponent {
       acc[user.username] = currentDrafts[user.username] ?? '';
       return acc;
     }, {});
+  }
+
+  private loadSiteSettingsDraft(): void {
+    const current = this.siteSettingsService.currentSettings;
+    this.siteSettingsDraft = {
+      brandTitle: current.brandTitle,
+      brandSubtitle: current.brandSubtitle,
+      homeEyebrow: current.homeEyebrow,
+      homeTitle: current.homeTitle,
+      homeLead: current.homeLead,
+      phoneNumber: current.phoneNumber,
+      backgroundImageUrl: current.backgroundImageUrl,
+      colorBg: current.colorBg,
+      colorPaper: current.colorPaper,
+      colorInk: current.colorInk,
+      colorBrand: current.colorBrand,
+      colorBrandStrong: current.colorBrandStrong
+    };
   }
 }

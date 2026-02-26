@@ -88,6 +88,22 @@
   color: #fff;
 }
 
+.color-field {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.color-field input {
+  width: 100%;
+  min-height: 36px;
+  border: 1px solid #d4c2a7;
+  border-radius: 8px;
+  background: #fff;
+  padding: 2px;
+}
+
 .danger {
   background: #ae2f2f;
   color: #fff;
