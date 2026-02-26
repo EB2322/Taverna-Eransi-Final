@@ -15,6 +15,17 @@ export interface SiteSettings {
   colorInk: string;
   colorBrand: string;
   colorBrandStrong: string;
+  footerDescription: string;
+  footerHours: string;
+  footerLocationUrl: string;
+  footerLocationLabel: string;
+  footerCopyrightName: string;
+  featureOneTitle: string;
+  featureOneText: string;
+  featureTwoTitle: string;
+  featureTwoText: string;
+  featureThreeTitle: string;
+  featureThreeText: string;
 }
 
 const DEFAULT_SETTINGS: SiteSettings = {
@@ -31,7 +42,18 @@ const DEFAULT_SETTINGS: SiteSettings = {
   colorPaper: '#fffdf8',
   colorInk: '#1f2430',
   colorBrand: '#a14f2f',
-  colorBrandStrong: '#7e3518'
+  colorBrandStrong: '#7e3518',
+  footerDescription: 'Gatim tradicional shqiptar, peshk i fresket dhe atmosfere familjare.',
+  footerHours: 'Hene - Diel: 08:00 - 22:00',
+  footerLocationUrl: 'https://maps.app.goo.gl/HT2hFbWGhmEzcchw6',
+  footerLocationLabel: 'Hape ne Google Maps',
+  footerCopyrightName: 'Taverna Eransi',
+  featureOneTitle: 'Perberes te fresket',
+  featureOneText: 'Perzgjedhje ditore e produkteve lokale dhe peshkut sipas sezonit.',
+  featureTwoTitle: 'Receta tradicionale',
+  featureTwoText: 'Shije klasike shqiptare te pergatitura me kujdes dhe teknike te paster.',
+  featureThreeTitle: 'Atmosfere mikpritese',
+  featureThreeText: 'Vend i pershtatshem per familje, miq dhe darka te qeta prane natyres.'
 };
 
 @Injectable({
@@ -102,7 +124,21 @@ export class SiteSettingsService {
       colorPaper: this.normalizeColor(input.colorPaper, DEFAULT_SETTINGS.colorPaper),
       colorInk: this.normalizeColor(input.colorInk, DEFAULT_SETTINGS.colorInk),
       colorBrand: this.normalizeColor(input.colorBrand, DEFAULT_SETTINGS.colorBrand),
-      colorBrandStrong: this.normalizeColor(input.colorBrandStrong, DEFAULT_SETTINGS.colorBrandStrong)
+      colorBrandStrong: this.normalizeColor(input.colorBrandStrong, DEFAULT_SETTINGS.colorBrandStrong),
+      footerDescription: this.normalizeText(input.footerDescription, DEFAULT_SETTINGS.footerDescription),
+      footerHours: this.normalizeText(input.footerHours, DEFAULT_SETTINGS.footerHours),
+      footerLocationUrl: this.normalizeText(input.footerLocationUrl, DEFAULT_SETTINGS.footerLocationUrl),
+      footerLocationLabel: this.normalizeText(input.footerLocationLabel, DEFAULT_SETTINGS.footerLocationLabel),
+      footerCopyrightName: this.normalizeText(
+        input.footerCopyrightName,
+        DEFAULT_SETTINGS.footerCopyrightName
+      ),
+      featureOneTitle: this.normalizeText(input.featureOneTitle, DEFAULT_SETTINGS.featureOneTitle),
+      featureOneText: this.normalizeText(input.featureOneText, DEFAULT_SETTINGS.featureOneText),
+      featureTwoTitle: this.normalizeText(input.featureTwoTitle, DEFAULT_SETTINGS.featureTwoTitle),
+      featureTwoText: this.normalizeText(input.featureTwoText, DEFAULT_SETTINGS.featureTwoText),
+      featureThreeTitle: this.normalizeText(input.featureThreeTitle, DEFAULT_SETTINGS.featureThreeTitle),
+      featureThreeText: this.normalizeText(input.featureThreeText, DEFAULT_SETTINGS.featureThreeText)
     };
   }
 

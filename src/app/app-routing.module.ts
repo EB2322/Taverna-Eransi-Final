@@ -6,6 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AdminComponent } from './pages/admin/admin.component';
 import { AuthService } from './core/auth.service';
 
 const adminOnlyGuard: CanActivateFn = () => {
@@ -26,6 +27,7 @@ const adminOnlyGuard: CanActivateFn = () => {
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'menu', component: MenuComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [adminOnlyGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent, canActivate: [adminOnlyGuard] },
   { path: '**', redirectTo: '' }

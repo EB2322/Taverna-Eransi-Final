@@ -8,6 +8,7 @@
     <nav class="nav" aria-label="Main navigation">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       <a routerLink="/menu" routerLinkActive="active">Menu</a>
+      <a routerLink="/admin" routerLinkActive="active" *ngIf="isAdminLoggedIn">Admin</a>
       <a routerLink="/login" routerLinkActive="active">Login</a>
     </nav>
 

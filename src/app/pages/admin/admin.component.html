@@ -1,0 +1,55 @@
+<section class="admin-page">
+  <header class="admin-hero">
+    <p class="eyebrow">Admin</p>
+    <h1>Cilesimet e Faqes</h1>
+    <p>Ndrysho tekstet, ngjyrat, background dhe footer nga nje vend.</p>
+  </header>
+
+  <section class="admin-card">
+    <div class="inline-form">
+      <input type="text" [(ngModel)]="siteSettingsDraft.brandTitle" [ngModelOptions]="{ standalone: true }" placeholder="Titulli i logos" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.brandSubtitle" [ngModelOptions]="{ standalone: true }" placeholder="Nentitulli i logos" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.homeEyebrow" [ngModelOptions]="{ standalone: true }" placeholder="Teksti i vogel ne home" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.homeTitle" [ngModelOptions]="{ standalone: true }" placeholder="Titulli kryesor ne home" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.homeLead" [ngModelOptions]="{ standalone: true }" placeholder="Pershkrimi ne home" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.phoneNumber" [ngModelOptions]="{ standalone: true }" placeholder="Numri i telefonit" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.backgroundImageUrl" [ngModelOptions]="{ standalone: true }" placeholder="URL e fotos background" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.footerDescription" [ngModelOptions]="{ standalone: true }" placeholder="Pershkrimi ne footer" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.footerHours" [ngModelOptions]="{ standalone: true }" placeholder="Orari ne footer" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.footerLocationUrl" [ngModelOptions]="{ standalone: true }" placeholder="URL lokacionit ne footer" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.footerLocationLabel" [ngModelOptions]="{ standalone: true }" placeholder="Teksti i lokacionit ne footer" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.footerCopyrightName" [ngModelOptions]="{ standalone: true }" placeholder="Emri te copyright" />
+
+      <input type="text" [(ngModel)]="siteSettingsDraft.featureOneTitle" [ngModelOptions]="{ standalone: true }" placeholder="Karta 1 titulli" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.featureOneText" [ngModelOptions]="{ standalone: true }" placeholder="Karta 1 pershkrimi" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.featureTwoTitle" [ngModelOptions]="{ standalone: true }" placeholder="Karta 2 titulli" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.featureTwoText" [ngModelOptions]="{ standalone: true }" placeholder="Karta 2 pershkrimi" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.featureThreeTitle" [ngModelOptions]="{ standalone: true }" placeholder="Karta 3 titulli" />
+      <input type="text" [(ngModel)]="siteSettingsDraft.featureThreeText" [ngModelOptions]="{ standalone: true }" placeholder="Karta 3 pershkrimi" />
+
+      <label class="color-field">
+        Ngjyra background
+        <input type="color" [(ngModel)]="siteSettingsDraft.colorBg" [ngModelOptions]="{ standalone: true }" />
+      </label>
+      <label class="color-field">
+        Ngjyra panelit
+        <input type="color" [(ngModel)]="siteSettingsDraft.colorPaper" [ngModelOptions]="{ standalone: true }" />
+      </label>
+      <label class="color-field">
+        Ngjyra tekstit
+        <input type="color" [(ngModel)]="siteSettingsDraft.colorInk" [ngModelOptions]="{ standalone: true }" />
+      </label>
+      <label class="color-field">
+        Ngjyra kryesore
+        <input type="color" [(ngModel)]="siteSettingsDraft.colorBrand" [ngModelOptions]="{ standalone: true }" />
+      </label>
+      <label class="color-field">
+        Ngjyra e forte
+        <input type="color" [(ngModel)]="siteSettingsDraft.colorBrandStrong" [ngModelOptions]="{ standalone: true }" />
+      </label>
+    </div>
+
+    <button type="button" (click)="save()">Ruaj cilesimet</button>
+    <p class="message" [class.error]="isError" *ngIf="message">{{ message }}</p>
+  </section>
+</section>

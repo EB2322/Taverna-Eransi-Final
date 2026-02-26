@@ -29,6 +29,17 @@ type SiteSettingsDraft = Pick<
   | 'colorInk'
   | 'colorBrand'
   | 'colorBrandStrong'
+  | 'footerDescription'
+  | 'footerHours'
+  | 'footerLocationUrl'
+  | 'footerLocationLabel'
+  | 'footerCopyrightName'
+  | 'featureOneTitle'
+  | 'featureOneText'
+  | 'featureTwoTitle'
+  | 'featureTwoText'
+  | 'featureThreeTitle'
+  | 'featureThreeText'
 >;
 
 @Component({
@@ -252,7 +263,18 @@ export class MenuComponent {
     colorPaper: '#fffdf8',
     colorInk: '#1f2430',
     colorBrand: '#a14f2f',
-    colorBrandStrong: '#7e3518'
+    colorBrandStrong: '#7e3518',
+    footerDescription: '',
+    footerHours: '',
+    footerLocationUrl: '',
+    footerLocationLabel: '',
+    footerCopyrightName: '',
+    featureOneTitle: '',
+    featureOneText: '',
+    featureTwoTitle: '',
+    featureTwoText: '',
+    featureThreeTitle: '',
+    featureThreeText: ''
   };
 
   constructor(
@@ -599,7 +621,18 @@ export class MenuComponent {
       colorPaper: current.colorPaper,
       colorInk: current.colorInk,
       colorBrand: current.colorBrand,
-      colorBrandStrong: current.colorBrandStrong
+      colorBrandStrong: current.colorBrandStrong,
+      footerDescription: current.footerDescription,
+      footerHours: current.footerHours,
+      footerLocationUrl: current.footerLocationUrl,
+      footerLocationLabel: current.footerLocationLabel,
+      footerCopyrightName: current.footerCopyrightName,
+      featureOneTitle: current.featureOneTitle,
+      featureOneText: current.featureOneText,
+      featureTwoTitle: current.featureTwoTitle,
+      featureTwoText: current.featureTwoText,
+      featureThreeTitle: current.featureThreeTitle,
+      featureThreeText: current.featureThreeText
     };
   }
 }

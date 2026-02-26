@@ -2,12 +2,12 @@
   <div class="wrap" *ngIf="settings$ | async as settings">
     <section>
       <h3>{{ settings.brandTitle }}</h3>
-      <p>Gatim tradicional shqiptar, peshk i fresket dhe atmosfere familjare.</p>
+      <p>{{ settings.footerDescription }}</p>
     </section>
 
     <section>
       <h3>Orari</h3>
-      <p>Hene - Diel: 08:00 - 22:00</p>
+      <p>{{ settings.footerHours }}</p>
     </section>
 
     <section>
@@ -18,10 +18,10 @@
       </p>
       <p>
         Lokacioni:
-        <a href="https://maps.app.goo.gl/HT2hFbWGhmEzcchw6" target="_blank" rel="noopener noreferrer">Hape ne Google Maps</a>
+        <a [href]="settings.footerLocationUrl" target="_blank" rel="noopener noreferrer">{{ settings.footerLocationLabel }}</a>
       </p>
     </section>
   </div>
 
-  <p class="copy">© {{ currentYear }} Taverna Eransi</p>
+  <p class="copy" *ngIf="settings$ | async as settings">© {{ currentYear }} {{ settings.footerCopyrightName }}</p>
 </footer>

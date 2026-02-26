@@ -1,0 +1,79 @@
+.admin-page {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-hero {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.94), rgba(246, 232, 206, 0.95));
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brand-strong);
+}
+
+.admin-hero p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+}
+
+.admin-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fffef8;
+  padding: 14px;
+}
+
+.inline-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 8px;
+}
+
+.inline-form input {
+  border: 1px solid #d4c2a7;
+  border-radius: 8px;
+  padding: 7px 9px;
+  font: inherit;
+}
+
+.color-field {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.color-field input {
+  min-height: 36px;
+  padding: 2px;
+}
+
+button {
+  margin-top: 10px;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font: inherit;
+  cursor: pointer;
+  background: #245f2e;
+  color: #fff;
+}
+
+.message {
+  margin: 10px 0 0;
+  color: #1f5d28;
+  font-weight: 600;
+}
+
+.message.error {
+  color: #8c1f1f;
+}

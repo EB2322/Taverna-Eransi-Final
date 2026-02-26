@@ -21,6 +21,10 @@ export class HeaderComponent {
     this.settings$ = this.siteSettingsService.settings$;
   }
 
+  get isAdminLoggedIn(): boolean {
+    return this.authService.currentSession?.role === 'admin';
+  }
+
   logout(): void {
     this.authService.logout();
   }

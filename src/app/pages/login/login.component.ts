@@ -25,7 +25,8 @@ export class LoginComponent {
     this.isError = !result.ok;
 
     if (result.ok) {
-      void this.router.navigate(['/menu']);
+      const isAdmin = this.authService.currentSession?.role === 'admin';
+      void this.router.navigate([isAdmin ? '/admin' : '/menu']);
     }
   }
 }
