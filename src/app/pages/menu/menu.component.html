@@ -6,11 +6,11 @@
       Specialitete tradicionale, gatime ne zgarre dhe pije te perzgjedhura.
       Cmimet jane ne Lek (L).
     </p>
-    <p class="admin-note" *ngIf="canEditPrices">Je i loguar si admin. Mund te ndryshosh cmimet.</p>
+    <p class="admin-note" *ngIf="canEditPrices">Je i loguar. Mund te ndryshosh cmimet.</p>
   </header>
 
   <section class="admin-panel" *ngIf="canEditPrices">
-    <h2>Paneli i Adminit</h2>
+    <h2>Paneli i Perdoruesit</h2>
 
     <div class="admin-card">
       <h3>Shto kategori menuje</h3>
@@ -30,6 +30,20 @@
           aria-label="Shenim i kategorise"
         />
         <button type="button" (click)="addSection()">Shto kategori</button>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <h3>Ndrysho password-in tend</h3>
+      <div class="inline-form">
+        <input
+          type="password"
+          [(ngModel)]="ownPasswordDraft"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Password i ri"
+          aria-label="Password i ri per userin aktual"
+        />
+        <button type="button" (click)="updateOwnPassword()">Ruaj password-in tim</button>
       </div>
     </div>
 

@@ -217,6 +217,7 @@ export class MenuComponent {
   newUserRole: UserRole = 'user';
   userMessage = '';
   userMessageError = false;
+  ownPasswordDraft = '';
   users: UserSummary[] = [];
   userPasswordDrafts: Record<string, string> = {};
   sectionPositionDrafts: Record<string, string> = {};
@@ -234,11 +235,15 @@ export class MenuComponent {
   }
 
   get canEditPrices(): boolean {
-    return this.authService.isAdmin;
+    return this.isLoggedIn;
   }
 
   get canManageUsers(): boolean {
     return this.authService.isAdmin;
+  }
+
+  get isLoggedIn(): boolean {
+    return !!this.authService.currentSession;
   }
 
   saveSections(): void {
@@ -412,6 +417,20 @@ export class MenuComponent {
 
     if (result.ok) {
       this.userPasswordDrafts[username] = '';
+    }
+  }
+
+  updateOwnPassword(): void {
+    if (!this.isLoggedIn) {
+      return;
+    }
+
+    const result = this.authService.updateOwnPassword(this.ownPasswordDraft);
+    this.userMessage = result.message;
+    this.userMessageError = !result.ok;
+
+    if (result.ok) {
+      this.ownPasswordDraft = '';
     }
   }
 

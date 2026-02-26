@@ -216,6 +216,36 @@ export class AuthService {
     return { ok: true, message: `Password u ndryshua per ${cleanUsername}.` };
   }
 
+  updateOwnPassword(newPassword: string): AuthResult {
+    if (!this.isBrowser) {
+      return { ok: false, message: 'Ndryshimi i password-it nuk eshte i disponueshem.' };
+    }
+
+    const session = this.currentSession;
+    if (!session) {
+      return { ok: false, message: 'Duhet te besh login fillimisht.' };
+    }
+
+    const cleanPassword = newPassword.trim();
+    if (!cleanPassword) {
+      return { ok: false, message: 'Password i ri eshte i detyrueshem.' };
+    }
+
+    const users = this.readUsers();
+    const targetUserIndex = users.findIndex((user) => user.username === session.username);
+    if (targetUserIndex === -1) {
+      return { ok: false, message: 'User-i aktual nuk u gjet.' };
+    }
+
+    users[targetUserIndex] = {
+      ...users[targetUserIndex],
+      password: cleanPassword
+    };
+
+    this.writeUsers(users);
+    return { ok: true, message: `Password u ndryshua per ${session.username}.` };
+  }
+
   private ensureDefaultAdmin(): void {
     const users = this.readUsers();
     const hasAdmin = users.some((user) => user.role === 'admin');
