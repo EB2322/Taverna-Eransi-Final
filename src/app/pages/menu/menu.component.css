@@ -37,6 +37,20 @@
   color: #2e6b2e;
 }
 
+.social-links {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.social-links a {
+  color: #1d4f91;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
 .admin-panel {
   display: grid;
   gap: 12px;

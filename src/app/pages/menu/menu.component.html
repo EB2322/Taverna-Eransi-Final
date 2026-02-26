@@ -6,11 +6,17 @@
       Specialitete tradicionale, gatime ne zgarre dhe pije te perzgjedhura.
       Cmimet jane ne Lek (L).
     </p>
-    <p class="admin-note" *ngIf="canEditPrices">Je i loguar. Mund te ndryshosh cmimet.</p>
+    <p class="admin-note" *ngIf="canEditPrices">Je i loguar. Mund te ndryshosh vetem cmimet.</p>
+    <p class="social-links">
+      Na ndiq:
+      <a href="https://www.instagram.com/tavernaeransi/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a>
+      |
+      <a href="https://www.facebook.com/taverna.eransi.pogradec/" target="_blank" rel="noopener noreferrer">Facebook</a>
+    </p>
   </header>
 
-  <section class="admin-panel" *ngIf="canEditPrices">
-    <h2>Paneli i Perdoruesit</h2>
+  <section class="admin-panel" *ngIf="canManageMenuStructure">
+    <h2>Paneli i Adminit</h2>
 
     <div class="admin-card">
       <h3>Shto kategori menuje</h3>
@@ -30,20 +36,6 @@
           aria-label="Shenim i kategorise"
         />
         <button type="button" (click)="addSection()">Shto kategori</button>
-      </div>
-    </div>
-
-    <div class="admin-card">
-      <h3>Ndrysho password-in tend</h3>
-      <div class="inline-form">
-        <input
-          type="password"
-          [(ngModel)]="ownPasswordDraft"
-          [ngModelOptions]="{ standalone: true }"
-          placeholder="Password i ri"
-          aria-label="Password i ri per userin aktual"
-        />
-        <button type="button" (click)="updateOwnPassword()">Ruaj password-in tim</button>
       </div>
     </div>
 
@@ -113,14 +105,14 @@
               (ngModelChange)="saveSections()"
               aria-label="Ndrysho cmimin"
             />
-            <button type="button" class="danger ghost" (click)="removeItem(sectionIndex, itemIndex)">Fshi</button>
+            <button type="button" class="danger ghost" *ngIf="canManageMenuStructure" (click)="removeItem(sectionIndex, itemIndex)">Fshi</button>
           </div>
         </li>
       </ul>
 
       <ng-template #readOnlyItem></ng-template>
 
-      <div class="inline-form section-actions" *ngIf="canEditPrices">
+      <div class="inline-form section-actions" *ngIf="canManageMenuStructure">
         <input
           type="number"
           min="1"

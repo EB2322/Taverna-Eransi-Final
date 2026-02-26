@@ -217,7 +217,6 @@ export class MenuComponent {
   newUserRole: UserRole = 'user';
   userMessage = '';
   userMessageError = false;
-  ownPasswordDraft = '';
   users: UserSummary[] = [];
   userPasswordDrafts: Record<string, string> = {};
   sectionPositionDrafts: Record<string, string> = {};
@@ -242,6 +241,10 @@ export class MenuComponent {
     return this.authService.isAdmin;
   }
 
+  get canManageMenuStructure(): boolean {
+    return this.authService.isAdmin;
+  }
+
   get isLoggedIn(): boolean {
     return !!this.authService.currentSession;
   }
@@ -257,7 +260,7 @@ export class MenuComponent {
   }
 
   addSection(): void {
-    if (!this.canEditPrices) {
+    if (!this.canManageMenuStructure) {
       return;
     }
 
@@ -279,7 +282,7 @@ export class MenuComponent {
   }
 
   removeSection(sectionIndex: number): void {
-    if (!this.canEditPrices || sectionIndex < 0 || sectionIndex >= this.sections.length) {
+    if (!this.canManageMenuStructure || sectionIndex < 0 || sectionIndex >= this.sections.length) {
       return;
     }
 
@@ -288,7 +291,7 @@ export class MenuComponent {
   }
 
   moveSectionUp(sectionIndex: number): void {
-    if (!this.canEditPrices || sectionIndex <= 0 || sectionIndex >= this.sections.length) {
+    if (!this.canManageMenuStructure || sectionIndex <= 0 || sectionIndex >= this.sections.length) {
       return;
     }
 
@@ -299,7 +302,7 @@ export class MenuComponent {
   }
 
   moveSectionDown(sectionIndex: number): void {
-    if (!this.canEditPrices || sectionIndex < 0 || sectionIndex >= this.sections.length - 1) {
+    if (!this.canManageMenuStructure || sectionIndex < 0 || sectionIndex >= this.sections.length - 1) {
       return;
     }
 
@@ -310,7 +313,7 @@ export class MenuComponent {
   }
 
   moveSectionToPosition(sectionIndex: number, targetPositionRaw: string | number | null | undefined): void {
-    if (!this.canEditPrices || sectionIndex < 0 || sectionIndex >= this.sections.length) {
+    if (!this.canManageMenuStructure || sectionIndex < 0 || sectionIndex >= this.sections.length) {
       return;
     }
 
@@ -339,7 +342,7 @@ export class MenuComponent {
   }
 
   addItem(sectionIndex: number): void {
-    if (!this.canEditPrices || sectionIndex < 0 || sectionIndex >= this.sections.length) {
+    if (!this.canManageMenuStructure || sectionIndex < 0 || sectionIndex >= this.sections.length) {
       return;
     }
 
@@ -357,7 +360,7 @@ export class MenuComponent {
   }
 
   removeItem(sectionIndex: number, itemIndex: number): void {
-    if (!this.canEditPrices || sectionIndex < 0 || sectionIndex >= this.sections.length) {
+    if (!this.canManageMenuStructure || sectionIndex < 0 || sectionIndex >= this.sections.length) {
       return;
     }
 
@@ -417,20 +420,6 @@ export class MenuComponent {
 
     if (result.ok) {
       this.userPasswordDrafts[username] = '';
-    }
-  }
-
-  updateOwnPassword(): void {
-    if (!this.isLoggedIn) {
-      return;
-    }
-
-    const result = this.authService.updateOwnPassword(this.ownPasswordDraft);
-    this.userMessage = result.message;
-    this.userMessageError = !result.ok;
-
-    if (result.ok) {
-      this.ownPasswordDraft = '';
     }
   }
 
