@@ -16,7 +16,11 @@ type SiteSettingsDraft = Pick<
   | 'colorBrand'
   | 'colorBrandStrong'
   | 'footerDescription'
+  | 'footerHoursTitle'
   | 'footerHours'
+  | 'footerContactTitle'
+  | 'footerWhatsappLabel'
+  | 'footerLocationPrefix'
   | 'footerLocationUrl'
   | 'footerLocationLabel'
   | 'footerCopyrightName'
@@ -51,7 +55,11 @@ export class AdminComponent {
     colorBrand: '#a14f2f',
     colorBrandStrong: '#7e3518',
     footerDescription: '',
+    footerHoursTitle: '',
     footerHours: '',
+    footerContactTitle: '',
+    footerWhatsappLabel: '',
+    footerLocationPrefix: '',
     footerLocationUrl: '',
     footerLocationLabel: '',
     footerCopyrightName: '',
@@ -90,7 +98,11 @@ export class AdminComponent {
       colorBrand: current.colorBrand,
       colorBrandStrong: current.colorBrandStrong,
       footerDescription: current.footerDescription,
+      footerHoursTitle: current.footerHoursTitle,
       footerHours: current.footerHours,
+      footerContactTitle: current.footerContactTitle,
+      footerWhatsappLabel: current.footerWhatsappLabel,
+      footerLocationPrefix: current.footerLocationPrefix,
       footerLocationUrl: current.footerLocationUrl,
       footerLocationLabel: current.footerLocationLabel,
       footerCopyrightName: current.footerCopyrightName,

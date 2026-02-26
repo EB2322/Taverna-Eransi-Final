@@ -32,6 +32,16 @@
   padding: 14px;
 }
 
+.admin-sections {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-card h3 {
+  margin: 0 0 10px;
+  color: #4e2d18;
+}
+
 .inline-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));

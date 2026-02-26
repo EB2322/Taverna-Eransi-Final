@@ -6,18 +6,18 @@
     </section>
 
     <section>
-      <h3>Orari</h3>
+      <h3>{{ settings.footerHoursTitle }}</h3>
       <p>{{ settings.footerHours }}</p>
     </section>
 
     <section>
-      <h3>Kontakt</h3>
+      <h3>{{ settings.footerContactTitle }}</h3>
       <p>
-        WhatsApp:
+        {{ settings.footerWhatsappLabel }}:
         <a [href]="whatsappLink" target="_blank" rel="noopener noreferrer">{{ settings.phoneNumber }}</a>
       </p>
       <p>
-        Lokacioni:
+        {{ settings.footerLocationPrefix }}:
         <a [href]="settings.footerLocationUrl" target="_blank" rel="noopener noreferrer">{{ settings.footerLocationLabel }}</a>
       </p>
     </section>

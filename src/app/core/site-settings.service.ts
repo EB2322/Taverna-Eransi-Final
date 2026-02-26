@@ -16,7 +16,11 @@ export interface SiteSettings {
   colorBrand: string;
   colorBrandStrong: string;
   footerDescription: string;
+  footerHoursTitle: string;
   footerHours: string;
+  footerContactTitle: string;
+  footerWhatsappLabel: string;
+  footerLocationPrefix: string;
   footerLocationUrl: string;
   footerLocationLabel: string;
   footerCopyrightName: string;
@@ -44,7 +48,11 @@ const DEFAULT_SETTINGS: SiteSettings = {
   colorBrand: '#a14f2f',
   colorBrandStrong: '#7e3518',
   footerDescription: 'Gatim tradicional shqiptar, peshk i fresket dhe atmosfere familjare.',
+  footerHoursTitle: 'Orari',
   footerHours: 'Hene - Diel: 08:00 - 22:00',
+  footerContactTitle: 'Kontakt',
+  footerWhatsappLabel: 'WhatsApp',
+  footerLocationPrefix: 'Lokacioni',
   footerLocationUrl: 'https://maps.app.goo.gl/HT2hFbWGhmEzcchw6',
   footerLocationLabel: 'Hape ne Google Maps',
   footerCopyrightName: 'Taverna Eransi',
@@ -126,7 +134,14 @@ export class SiteSettingsService {
       colorBrand: this.normalizeColor(input.colorBrand, DEFAULT_SETTINGS.colorBrand),
       colorBrandStrong: this.normalizeColor(input.colorBrandStrong, DEFAULT_SETTINGS.colorBrandStrong),
       footerDescription: this.normalizeText(input.footerDescription, DEFAULT_SETTINGS.footerDescription),
+      footerHoursTitle: this.normalizeText(input.footerHoursTitle, DEFAULT_SETTINGS.footerHoursTitle),
       footerHours: this.normalizeText(input.footerHours, DEFAULT_SETTINGS.footerHours),
+      footerContactTitle: this.normalizeText(input.footerContactTitle, DEFAULT_SETTINGS.footerContactTitle),
+      footerWhatsappLabel: this.normalizeText(input.footerWhatsappLabel, DEFAULT_SETTINGS.footerWhatsappLabel),
+      footerLocationPrefix: this.normalizeText(
+        input.footerLocationPrefix,
+        DEFAULT_SETTINGS.footerLocationPrefix
+      ),
       footerLocationUrl: this.normalizeText(input.footerLocationUrl, DEFAULT_SETTINGS.footerLocationUrl),
       footerLocationLabel: this.normalizeText(input.footerLocationLabel, DEFAULT_SETTINGS.footerLocationLabel),
       footerCopyrightName: this.normalizeText(
