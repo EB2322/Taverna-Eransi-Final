@@ -12,15 +12,9 @@
       <a routerLink="/register" routerLinkActive="active">Create User</a>
     </nav>
 
-    <div class="session" *ngIf="session$ | async as session; else guest">
+    <div class="session" *ngIf="session$ | async as session">
       <span>{{ session.username }} ({{ session.role }})</span>
       <button type="button" (click)="logout()">Logout</button>
     </div>
-
-    <ng-template #guest>
-      <div class="session">
-        <span>Pa login</span>
-      </div>
-    </ng-template>
   </div>
 </header>
